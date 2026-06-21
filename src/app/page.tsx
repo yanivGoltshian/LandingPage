@@ -3,6 +3,8 @@ import Link from "next/link";
 import { homepage, categories, products, getProduct, site, whatsappLink, telLink } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
 import LeadForm from "@/components/LeadForm";
+import ProductCube from "@/components/ProductCube";
+import GallerySlideshow from "@/components/GallerySlideshow";
 
 const galleryImages = ["g1", "g2", "g3", "g4", "g5", "g6"];
 
@@ -19,8 +21,10 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden hero-glow text-white">
-        <div className="absolute inset-0 opacity-25">
-          <Image src={homepage.hero.image} alt="" fill className="object-cover" priority />
+        <div className="absolute inset-0">
+          <Image src={homepage.hero.image} alt="בניין אימפריית הניילון באזור התעשייה ביבנה" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-l from-ink via-ink/85 to-ink/35" />
+          <div className="absolute inset-0 hero-glow opacity-55 mix-blend-multiply" />
         </div>
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <div className="max-w-2xl animate-fade-up">
@@ -83,9 +87,30 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl ring-1 ring-border">
-            <Image src="/images/banners/factory.jpg" alt="מפעל אימפריית הניילון" fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
+          <GallerySlideshow images={homepage.intro.gallery} alt="מתקני המפעל של אימפריית הניילון ביבנה" />
+        </div>
+      </section>
+
+      {/* HOT DEALS — rotating product cube */}
+      <section className="relative overflow-hidden hero-glow text-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+            <div className="animate-fade-up">
+              <span className="inline-block rounded-full border border-gold/40 bg-white/5 px-4 py-1.5 text-sm font-semibold text-gold">
+                {homepage.hotDeals.eyebrow}
+              </span>
+              <h2 className="mt-5 font-display text-3xl sm:text-4xl font-black leading-tight">
+                {homepage.hotDeals.title}
+              </h2>
+              <div className="mt-5 h-0.5 w-24 gold-rule rounded-full" />
+              <p className="mt-5 text-lg text-white/80 leading-relaxed">{homepage.hotDeals.text}</p>
+              <Link href={homepage.hotDeals.cta.href} className="mt-8 inline-block rounded-full bg-eco px-7 py-3.5 font-semibold text-white shadow-lg hover:bg-eco-dark transition">
+                {homepage.hotDeals.cta.label}
+              </Link>
+            </div>
+            <div className="flex justify-center py-6">
+              <ProductCube images={homepage.hotDeals.images} />
+            </div>
           </div>
         </div>
       </section>

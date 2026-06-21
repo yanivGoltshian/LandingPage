@@ -105,3 +105,43 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-up { animation: fadeUp 0.7s ease-out both; }
+
+/* 3D rotating product cube */
+.cube-scene {
+  --cube-size: 230px;
+  --cube-half: 115px;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  margin-inline: auto;
+  perspective: 1200px;
+}
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-spin 18s linear infinite;
+}
+.cube-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(201, 160, 78, 0.55);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.22);
+  background: var(--ink);
+}
+.cube-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.12), transparent 55%);
+  pointer-events: none;
+}
+@keyframes cube-spin {
+  from { transform: rotateX(-18deg) rotateY(0deg); }
+  to { transform: rotateX(-18deg) rotateY(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cube { animation: none; transform: rotateX(-18deg) rotateY(-25deg); }
+}

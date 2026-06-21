@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site, categories, telLink, whatsappLink } from "@/lib/data";
+import SocialButtons from "@/components/SocialButtons";
 
 export default function Footer() {
   return (
@@ -21,11 +22,7 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-white/60">
               {site.tagline}. ייצור איכותי, אמין ומהיר עם ניסיון של עשרות שנים.
             </p>
-            <div className="mt-4 flex gap-4 text-sm">
-              <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-gold transition">פייסבוק</a>
-              <span className="text-white/20">·</span>
-              <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-gold transition">אינסטגרם</a>
-            </div>
+            <SocialButtons className="mt-5" variant="dark" />
           </div>
 
           {/* categories */}

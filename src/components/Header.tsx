@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { site, categories, telLink, whatsappLink } from "@/lib/data";
+import SocialButtons from "@/components/SocialButtons";
 
 const nav = [
   { label: "בית", href: "/" },
@@ -25,6 +26,8 @@ export default function Header() {
             {site.address}, {site.city}
           </span>
           <span className="flex items-center gap-3">
+            <SocialButtons size="sm" variant="dark" className="hidden sm:flex" />
+            <span className="hidden sm:inline opacity-30">|</span>
             <a href={telLink(site.phone)} className="hover:text-white transition flex items-center gap-1">
               {site.phone}
             </a>

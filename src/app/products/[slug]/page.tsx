@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { products, getProduct, categories, telLink, whatsappLink, site } from "@/lib/data";
 import LeadForm from "@/components/LeadForm";
 import ProductCard from "@/components/ProductCard";
+import JsonLd from "@/components/JsonLd";
+import { productLd, breadcrumbLd } from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -40,6 +42,16 @@ export default async function ProductPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          productLd(product),
+          breadcrumbLd([
+            { name: "בית", url: "/" },
+            { name: "מוצרים", url: "/products/" },
+            { name: product.name, url: `/products/${product.slug}/` },
+          ]),
+        ]}
+      />
       <div className="mx-auto max-w-6xl px-4 py-8">
         <nav className="text-sm text-muted mb-6 flex gap-2">
           <Link href="/" className="hover:text-brand">בית</Link>

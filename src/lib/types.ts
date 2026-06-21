@@ -36,7 +36,7 @@ export type Homepage = {
     ctaSecondary: CTA;
   };
   announcement: string;
-  intro: { title: string; lead: string; paragraphs: string[] };
+  intro: { title: string; lead: string; paragraphs: string[]; gallery: string[] };
   advantages: Advantage[];
   bagTypesTitle: string;
   bagTypesSubtitle: string;
@@ -47,6 +47,13 @@ export type Homepage = {
   stats: Stat[];
   brandedPitch: { title: string; text: string; bullets: string[]; image: string };
   aboutTeaser: { title: string; text: string; href: string };
+  hotDeals: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    cta: CTA;
+    images: string[];
+  };
 };
 
 export type Site = {

@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Heebo, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/data";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
+import JsonLd from "@/components/JsonLd";
+import { organizationLd, websiteLd } from "@/lib/structured-data";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -42,6 +44,20 @@ export const metadata: Metadata = {
     locale: "he_IL",
     siteName: site.name,
   },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#b00000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -50,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl">
       <body className={`${heebo.variable} ${frank.variable} antialiased`}>
+        <JsonLd data={[organizationLd(), websiteLd()]} />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
