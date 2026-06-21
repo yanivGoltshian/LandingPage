@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/types";
+import { asset } from "@/lib/asset";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -10,7 +11,7 @@ export default function ProductCard({ product }: { product: Product }) {
     >
       <div className="relative aspect-square overflow-hidden bg-cream-2">
         <Image
-          src={product.image}
+          src={asset(product.image)}
           alt={product.name}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"

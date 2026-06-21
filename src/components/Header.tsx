@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { site, categories, telLink, whatsappLink } from "@/lib/data";
 import SocialButtons from "@/components/SocialButtons";
+import { asset } from "@/lib/asset";
 
 const nav = [
   { label: "בית", href: "/" },
@@ -42,7 +43,7 @@ export default function Header() {
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
-              src="/images/brand/logo.png"
+              src={asset("/images/brand/logo.png")}
               alt={site.name}
               width={150}
               height={82}

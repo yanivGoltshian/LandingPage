@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { site, categories, telLink, whatsappLink } from "@/lib/data";
 import SocialButtons from "@/components/SocialButtons";
+import { asset } from "@/lib/asset";
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="inline-flex rounded-xl bg-white p-3">
               <Image
-                src="/images/brand/logo.png"
+                src={asset("/images/brand/logo.png")}
                 alt={site.name}
                 width={150}
                 height={82}

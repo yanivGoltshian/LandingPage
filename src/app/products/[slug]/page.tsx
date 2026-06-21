@@ -6,6 +6,7 @@ import { products, getProduct, categories, telLink, whatsappLink, site } from "@
 import LeadForm from "@/components/LeadForm";
 import ProductCard from "@/components/ProductCard";
 import JsonLd from "@/components/JsonLd";
+import { asset } from "@/lib/asset";
 import { productLd, breadcrumbLd } from "@/lib/structured-data";
 
 export function generateStaticParams() {
@@ -63,7 +64,7 @@ export default async function ProductPage({
 
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="relative aspect-square rounded-3xl overflow-hidden bg-surface shadow-sm">
-            <Image src={product.image} alt={product.name} fill className="object-cover" priority />
+            <Image src={asset(product.image)} alt={product.name} fill className="object-cover" priority />
             {product.branded && (
               <span className="absolute top-4 right-4 rounded-full bg-eco px-3 py-1.5 text-sm font-semibold text-white">
                 ניתן למיתוג והדפסה

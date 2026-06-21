@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 
 export default function GallerySlideshow({
   images,
@@ -28,7 +29,7 @@ export default function GallerySlideshow({
       {images.map((src, i) => (
         <Image
           key={src}
-          src={src}
+          src={asset(src)}
           alt={alt}
           fill
           sizes="(max-width:1024px) 100vw, 50vw"

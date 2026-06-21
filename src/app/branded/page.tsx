@@ -5,6 +5,7 @@ import { homepage, brandedProducts } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
 import LeadForm from "@/components/LeadForm";
 import PageHero from "@/components/PageHero";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "שקיות ממותגות",
@@ -30,7 +31,7 @@ export default function BrandedPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14 grid gap-10 lg:grid-cols-2 items-center">
         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
-          <Image src={homepage.brandedPitch.image} alt="שקיות ממותגות" fill className="object-cover" />
+          <Image src={asset(homepage.brandedPitch.image)} alt="שקיות ממותגות" fill className="object-cover" />
         </div>
         <ul className="space-y-4">
           {homepage.brandedPitch.bullets.map((b) => (

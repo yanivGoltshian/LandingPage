@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import LeadForm from "@/components/LeadForm";
 import ProductCube from "@/components/ProductCube";
 import GallerySlideshow from "@/components/GallerySlideshow";
+import { asset } from "@/lib/asset";
 
 const galleryImages = ["g1", "g2", "g3", "g4", "g5", "g6"];
 
@@ -22,7 +23,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden hero-glow text-white">
         <div className="absolute inset-0">
-          <Image src={homepage.hero.image} alt="בניין אימפריית הניילון באזור התעשייה ביבנה" fill className="object-cover" priority />
+          <Image src={asset(homepage.hero.image)} alt="בניין אימפריית הניילון באזור התעשייה ביבנה" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-l from-ink via-ink/85 to-ink/35" />
           <div className="absolute inset-0 hero-glow opacity-55 mix-blend-multiply" />
         </div>
@@ -131,7 +132,7 @@ export default function Home() {
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface card-elegant transition hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-cream">
-                  <Image src={p.image} alt={p.name} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                  <Image src={asset(p.image)} alt={p.name} fill className="object-cover transition duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-display text-xl font-bold group-hover:text-brand transition">{p.name}</h3>
@@ -225,7 +226,7 @@ export default function Home() {
       {/* BRANDED PITCH */}
       <section className="mx-auto max-w-6xl px-4 py-16 grid gap-10 lg:grid-cols-2 items-center">
         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl ring-1 ring-border order-last lg:order-first">
-          <Image src={homepage.brandedPitch.image} alt="ייצור שקיות ממותגות" fill className="object-cover" />
+          <Image src={asset(homepage.brandedPitch.image)} alt="ייצור שקיות ממותגות" fill className="object-cover" />
         </div>
         <div>
           <span className="font-bold" style={{ color: "#7c4dbc" }}>שקיות ממותגות</span>
@@ -259,7 +260,7 @@ export default function Home() {
                 key={g}
                 className={`relative overflow-hidden rounded-2xl ring-1 ring-border group ${i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"}`}
               >
-                <Image src={`/images/gallery/${g}.jpg`} alt="מוצר אימפריית הניילון" fill className="object-cover transition duration-500 group-hover:scale-105" sizes="(max-width:768px) 50vw, 33vw" />
+                <Image src={asset(`/images/gallery/${g}.jpg`)} alt="מוצר אימפריית הניילון" fill className="object-cover transition duration-500 group-hover:scale-105" sizes="(max-width:768px) 50vw, 33vw" />
               </div>
             ))}
           </div>
