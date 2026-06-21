@@ -28,6 +28,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /LandingPage
+          NEXT_PUBLIC_SITE_URL: https://yanivgoltshian.github.io
       - name: Disable Jekyll (serve _next/ folder)
         run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3

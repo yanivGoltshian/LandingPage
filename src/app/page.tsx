@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import LeadForm from "@/components/LeadForm";
 import ProductCube from "@/components/ProductCube";
 import GallerySlideshow from "@/components/GallerySlideshow";
+import HeroVideo from "@/components/HeroVideo";
 import { asset } from "@/lib/asset";
 
 const galleryImages = ["g1", "g2", "g3", "g4", "g5", "g6"];
@@ -24,6 +25,7 @@ export default function Home() {
       <section className="relative overflow-hidden hero-glow text-white">
         <div className="absolute inset-0">
           <Image src={asset(homepage.hero.image)} alt="בניין אימפריית הניילון באזור התעשייה ביבנה" fill className="object-cover" priority />
+          <HeroVideo videoId={homepage.video.youtubeId} />
           <div className="absolute inset-0 bg-gradient-to-l from-ink via-ink/85 to-ink/35" />
           <div className="absolute inset-0 hero-glow opacity-55 mix-blend-multiply" />
         </div>

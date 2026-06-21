@@ -20,8 +20,11 @@ const frank = Frank_Ruhl_Libre({
   weight: ["500", "700", "800", "900"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.naylon.co.il";
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.naylon.co.il"),
+  metadataBase: new URL(`${SITE_URL}${BASE_PATH}/`),
   title: {
     default: `${site.name} – ${site.tagline}`,
     template: `%s | ${site.name}`,
@@ -43,6 +46,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "he_IL",
     siteName: site.name,
+    url: `${SITE_URL}${BASE_PATH}/`,
+    images: [
+      {
+        url: `${SITE_URL}${BASE_PATH}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: `${site.name} – ${site.tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} – ${site.tagline}`,
+    description: site.description,
+    images: [`${SITE_URL}${BASE_PATH}/og-image.jpg`],
   },
   alternates: {
     canonical: "/",
